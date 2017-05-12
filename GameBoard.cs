@@ -79,6 +79,9 @@ namespace MyGame
 			{
 				c.Speed = 10;
 				s.Stage = 3; 
+			}else {
+				c.Speed = 11;
+				s.Stage = 4;
 			}
 
 
@@ -90,13 +93,13 @@ namespace MyGame
 			{
 				s.Decrement ();
 			}
-			else if (c.Y == 570 && c.Collision (p) != true)
+			else if (c.Y >= 570 && c.Collision (p) != true)
 			{
 				_obstacles.Add (c);
 			}
 
 
-			if (c.Y == 600)
+			if (c.Y >= 600)
 			{
 				Spawnpoints = 4;
 				return _spawned = true;
@@ -139,22 +142,31 @@ namespace MyGame
 				c.Speed = 10;
 				s.Stage = 3; 
 			}
+			else {
+				c.Speed = 11;
+				s.Stage = 4;
+			}
+
+			//if (s1.Elapsed.TotalSeconds > 5) 
+			//{
+			//	c.Speed = 10;
+			//	s.Stage = 3;
+			//}
 
 			c.Drop ();
 			c.Draw ();
-
 
 			if (c.Collision (p) == true)
 			{
 				s.Decrement ();
 			}
-			else if (c.Y == 570 && c.Collision (p) != true)
+			else if (c.Y >= 570 && c.Collision (p) != true)
 			{
 				_obstacles.Add (c);
 			}
 
 
-			if (c.Y == 600)
+			if (c.Y >= 600)
 			{
 				Spawnpoints = 4;
 				return _spawned = true;
@@ -187,16 +199,16 @@ namespace MyGame
 			}
 
 
-			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
-			{
+			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40) {
 				c.Speed = 5;
 				s.Stage = 2;
 
-			}
-			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
-			{
+			} else if (s1.Elapsed.TotalSeconds >= 40 && s1.Elapsed.TotalSeconds <= 60) {
 				c.Speed = 10;
-				s.Stage = 3; 
+				s.Stage = 3;
+			} else {
+				c.Speed = 11;
+				s.Stage = 4;
 			}
 
 			c.Drop ();
@@ -207,13 +219,13 @@ namespace MyGame
 			{
 				s.Decrement ();
 			}
-			else if (c.Y == 570 && c.Collision (p) != true)
+			else if (c.Y >= 570 && c.Collision (p) != true)
 			{
 				_obstacles.Add (c);
 			}
 
 
-			if (c.Y == 600)
+			if (c.Y >= 600)
 			{
 				Spawnpoints = 4;
 				return _spawned = true;
@@ -256,6 +268,15 @@ namespace MyGame
 				c.Speed = 10;
 				s.Stage = 3; 
 			}
+			else {
+				c.Speed = 11;
+				s.Stage = 4;
+			}
+
+			//if (s1.Elapsed.TotalSeconds > 5) {
+			//	c.Speed = 10;
+			//	s.Stage = 3;
+			//}
 
 			c.Drop ();
 			c.Draw ();
@@ -266,7 +287,7 @@ namespace MyGame
 				s.Increment ();
 			}
 
-			if (c.Y == 600)
+			if (c.Y >= 600)
 			{
 				Spawnpoints = 4;
 				return _spawned = true;
