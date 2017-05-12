@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using SwinGameSDK;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -27,13 +27,13 @@ namespace MyGame
 		{
 			GameBoard gb = new GameBoard (); 
 			PlayerVehicle p = new PlayerVehicle (415, 570);
-			ScoreBoard s = new ScoreBoard (0, 3, 1, "Peak Hours");
+			ScoreBoard.Initialize(0, 3, 1, "Peak Hours");
 			Car c = new Car (415, 20);
 			Lorry l = new Lorry (415, 20);
 			Motorcycle m = new Motorcycle (415, 20);
 			Fuel f = new Fuel (415, 20);
 
-			gb.RandomSpawnVehicle (c, s, p);
+			gb.RandomSpawnVehicle (c, p);
 			Assert.AreEqual (22.5, c.Y);
 		}
 
@@ -42,7 +42,7 @@ namespace MyGame
 		{
 			GameBoard gb = new GameBoard (); 
 			PlayerVehicle p = new PlayerVehicle (415, 570);
-			ScoreBoard s = new ScoreBoard (0, 3, 1, "Peak Hours");
+			ScoreBoard.Initialize(0, 3, 1, "Peak Hours");
 			Car c = new Car (415, 20);
 			Lorry l = new Lorry (415, 20);
 			Motorcycle m = new Motorcycle (415, 20);
@@ -51,7 +51,7 @@ namespace MyGame
 
 			while (gb.Spawned == false)
 			{
-				gb.RandomSpawnVehicle (c, s, p);
+				gb.RandomSpawnVehicle (c, p);
 			}
 
 			Assert.AreEqual (620 ,c.Y);				
@@ -63,7 +63,7 @@ namespace MyGame
 		{
 			GameBoard gb = new GameBoard (); 
 			PlayerVehicle p = new PlayerVehicle (415, 570);
-			ScoreBoard s = new ScoreBoard (0, 0, 1, "Peak Hours");
+			ScoreBoard.Initialize (0, 0, 1, "Peak Hours");
 			Car c = new Car (415, 20);
 			Lorry l = new Lorry (415, 20);
 			Motorcycle m = new Motorcycle (415, 20);
@@ -88,14 +88,14 @@ namespace MyGame
 			Stopwatch s1 = Stopwatch.StartNew(); 
 			s1.Start ();
 			PlayerVehicle p = new PlayerVehicle (415, 570);
-			ScoreBoard s = new ScoreBoard (0, 0, 1, "Peak Hours");
+			ScoreBoard.Initialize(0, 0, 1, "Peak Hours");
 			Car c = new Car (415, 20);
 			Lorry l = new Lorry (415, 20);
 			Motorcycle m = new Motorcycle (415, 20);
 			Fuel f = new Fuel (415, 20);
 
 	
-				gb.RandomSpawnVehicle (c, s, p);
+				gb.RandomSpawnVehicle (c, p);
 	
 			Assert.AreEqual (2.5 ,c.Speed);				
 
@@ -104,22 +104,22 @@ namespace MyGame
 		[Test()]
 		public void TestgameOver()
 		{
-			GameBoard gb = new GameBoard (); 
+			GameBoard gb = new GameBoard ();
 			PlayerVehicle p = new PlayerVehicle (415, 570);
-			ScoreBoard s = new ScoreBoard (0, 0, 1, "Peak Hours");
+			ScoreBoard.Initialize(0, 0, 1, "Peak Hours");
 			Car c = new Car (415, 20);
 			Lorry l = new Lorry (415, 20);
 			Motorcycle m = new Motorcycle (415, 20);
 			Fuel f = new Fuel (415, 20);
 
-			if (gb.GameOver(s) == true)
+			if (gb.GameOver() == true)
 			{
-				s.Life = 3;
-				s.Score = 1;
+				ScoreBoard.Life = 3;
+				ScoreBoard.Score = 1;
 			}
 
 
-			Assert.AreEqual (3 ,s.Life);				
+			Assert.AreEqual (3 ,ScoreBoard.Life);	
 
 		}
 

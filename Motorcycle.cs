@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using SwinGameSDK;
 using System.Collections.Generic;
 
@@ -36,7 +36,10 @@ namespace MyGame
 		{
 			get{ return _speed;}
 			set{ _speed = value;}
+		}
 
+		public ObstacleType getType {
+			get { return ObstacleType.Motorcycle; }
 		}
 	}
 }

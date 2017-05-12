@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using SwinGameSDK;
 
 namespace MyGame
@@ -30,7 +30,6 @@ namespace MyGame
 				this.Y += 95;
 			}
 		}
-
 		public void NavigateLeft ()
 		{
 			if (this.X > 400)
@@ -47,11 +46,6 @@ namespace MyGame
 			}
 		}
 			
-
-		//public void SlowDown ()
-		//{
-			//this.Y -= 40;
-		//}
 
 		public void Draw ()
 		{

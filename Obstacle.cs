@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 
 namespace MyGame
 {
 	public abstract class Obstacle
 	{
-		//http://stackoverflow.com/questions/34475079/how-to-spawn-two-different-objects-randomly-in-two-specified-positions-in-unity
-
 		private double _x, _y;
 
 		public Obstacle ()

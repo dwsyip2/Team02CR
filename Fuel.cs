@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using SwinGameSDK;
 using System.Collections.Generic;
 
@@ -12,6 +12,10 @@ namespace MyGame
 			_speed = 2.5;
 		}
 
+
+		/// <summary>
+		/// Accelerate obstacles
+		/// </summary>
 		public override void Drop ()
 		{
 			if (this.Y < 610)				
@@ -37,6 +41,9 @@ namespace MyGame
 			get{ return _speed;}
 			set{ _speed = value;}
 
+		}
+		public ObstacleType getType {
+			get { return ObstacleType.Fuel; }
 		}
 	}
 }
