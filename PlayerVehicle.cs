@@ -15,8 +15,21 @@ namespace MyGame
 			_y = y;
 		}
 
+		//Move up
+		public void NavigateUp ()
+		{
+			if (this.Y > 90) {
+				this.Y -= 95;
+			}
+		}
 
-
+		//Move Down
+		public void NavigateDown ()
+		{
+			if (this.Y < 480) {
+				this.Y += 95;
+			}
+		}
 
 		public void NavigateLeft ()
 		{

@@ -93,15 +93,21 @@ namespace MyGame
 					if (SwinGame.KeyTyped (KeyCode.vk_LEFT))
 						p.NavigateLeft ();
 					else if (SwinGame.KeyTyped (KeyCode.vk_RIGHT))
-						p.NavigateRight ();	
+						p.NavigateRight ();
+					else if (SwinGame.KeyTyped (KeyCode.vk_UP))
+						p.NavigateUp ();
+					else if (SwinGame.KeyTyped (KeyCode.vk_DOWN))
+						p.NavigateDown ();
 					p.Draw ();
 
 					SwinGame.DrawText ("Score:"+ s.Score.ToString(), Color.Black, 10, 100);
 					SwinGame.DrawText ("Life:"+s.Life.ToString(), Color.Black, 10, 150);
 					SwinGame.DrawText ("Stage:" +s.Stage.ToString(), Color.Black, 10, 200);
-					SwinGame.DrawText ("Speed:" +s.Traffic.ToString(), Color.Black, 10, 350);
+					SwinGame.DrawText ("Speed:" +s.Traffic.ToString(), Color.Black, 10, 450);
 					SwinGame.DrawText ("Right Arrow key to move right", Color.Black, 10, 250);
 					SwinGame.DrawText ("Left Arrow key to move left", Color.Black, 10, 300);
+					SwinGame.DrawText ("Up Arrow key to move up", Color.Black, 10, 350);
+					SwinGame.DrawText ("Down Arrow key to move down", Color.Black, 10, 400);
 					SwinGame.DrawFramerate(0,0);
 
 					//Draw onto the screen

@@ -129,3 +129,37 @@ C:\Users\sfu\Desktop\Carsho Rusho\bin\Debug\normnfkc.nlp
 C:\Users\sfu\Desktop\Carsho Rusho\bin\Debug\normnfkd.nlp
 C:\Users\sfu\Desktop\Carsho Rusho\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
 C:\Users\sfu\Desktop\Carsho Rusho\obj\x86\Debug-Windows\MyGame.exe
+H:\Team02CR\bin\Debug\Resources\animations\startup.txt
+H:\Team02CR\bin\Debug\Resources\bundles\FileDialog.txt
+H:\Team02CR\bin\Debug\Resources\bundles\splash.txt
+H:\Team02CR\bin\Debug\Resources\fonts\arial.ttf
+H:\Team02CR\bin\Debug\Resources\fonts\cour.ttf
+H:\Team02CR\bin\Debug\Resources\fonts\maven_pro_regular.ttf
+H:\Team02CR\bin\Debug\Resources\images\fdFile.png
+H:\Team02CR\bin\Debug\Resources\images\fdFolder.png
+H:\Team02CR\bin\Debug\Resources\images\FileDialog_Active.png
+H:\Team02CR\bin\Debug\Resources\images\FileDialog_Background.png
+H:\Team02CR\bin\Debug\Resources\images\FileDialog_Inactive.png
+H:\Team02CR\bin\Debug\Resources\images\FileDialog_Scroll.png
+H:\Team02CR\bin\Debug\Resources\images\FileDialog_ScrollSmall.png
+H:\Team02CR\bin\Debug\Resources\images\Swinburne.jpg
+H:\Team02CR\bin\Debug\Resources\images\SwinGameAni.png
+H:\Team02CR\bin\Debug\Resources\panels\FileDialog.txt
+H:\Team02CR\bin\Debug\Resources\sounds\error.wav
+H:\Team02CR\bin\Debug\Resources\sounds\SwinGameStart.wav
+H:\Team02CR\bin\Debug\Resources\SwinGame.icns
+H:\Team02CR\bin\Debug\Resources\SwinGame.ico
+H:\Team02CR\bin\Debug\bg.jpg
+H:\Team02CR\bin\Debug\car.png
+H:\Team02CR\bin\Debug\fuel.png
+H:\Team02CR\bin\Debug\lorry.png
+H:\Team02CR\bin\Debug\player.png
+H:\Team02CR\bin\Debug\gameover.jpg
+H:\Team02CR\bin\Debug\thankyou.jpg
+H:\Team02CR\bin\Debug\motorcycle.png
+H:\Team02CR\bin\Debug\MyGame.exe
+H:\Team02CR\bin\Debug\nunit.framework.dll
+H:\Team02CR\bin\Debug\SwinGame.dll
+H:\Team02CR\bin\Debug\nunit.framework.xml
+H:\Team02CR\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
+H:\Team02CR\obj\x86\Debug-Windows\MyGame.exe
