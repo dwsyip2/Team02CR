@@ -7,8 +7,6 @@ namespace MyGame
 	{
 		GameBoard gameBoard;
 		PlayerVehicle p;
-		//List<Obstacle> obstacles = new List<Obstacle>();
-
 		public const int startLane1X = 320;
 		public const int startLane2X = 415;
 		public const int startLane3X = 510;
