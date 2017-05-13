@@ -149,11 +149,11 @@ C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Asse
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\Resources\sounds\SwinGameStart.wav
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\Resources\SwinGame.icns
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\Resources\SwinGame.ico
-C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\bg.jpg
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\car.png
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\fuel.png
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\lorry.png
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\player.png
+C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\bg.jpg
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\gameover.jpg
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\thankyou.jpg
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\motorcycle.png
@@ -161,5 +161,4 @@ C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Asse
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\nunit.framework.dll
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\SwinGame.dll
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\nunit.framework.xml
-C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Windows\MyGame.exe

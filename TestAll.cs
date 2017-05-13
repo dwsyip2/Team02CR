@@ -33,7 +33,7 @@ namespace MyGame
 			Motorcycle m = new Motorcycle (415, 20);
 			Fuel f = new Fuel (415, 20);
 
-			gb.RandomSpawnVehicle (c, p);
+			gb.RandomSpawnVehicle (c);
 			Assert.AreEqual (22.5, c.Y);
 		}
 
@@ -51,7 +51,7 @@ namespace MyGame
 
 			while (gb.Spawned == false)
 			{
-				gb.RandomSpawnVehicle (c, p);
+				gb.RandomSpawnVehicle (c);
 			}
 
 			Assert.AreEqual (620 ,c.Y);				
@@ -95,7 +95,7 @@ namespace MyGame
 			Fuel f = new Fuel (415, 20);
 
 	
-				gb.RandomSpawnVehicle (c, p);
+				gb.RandomSpawnVehicle (c);
 	
 			Assert.AreEqual (2.5 ,c.Speed);				
 

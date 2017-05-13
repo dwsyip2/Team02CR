@@ -8,15 +8,15 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Team02CR Status">
     <Files>
       <File FileName="src\GameMain.cs" Line="136" Column="32" />
-      <File FileName="GameBoard.cs" Line="194" Column="6" />
-      <File FileName="Motorcycle.cs" Line="42" Column="43" />
-      <File FileName="Car.cs" Line="51" Column="4" />
-      <File FileName="Lorry.cs" Line="42" Column="38" />
-      <File FileName="Fuel.cs" Line="47" Column="4" />
+      <File FileName="GameBoard.cs" Line="165" Column="26" />
+      <File FileName="src\GameController.cs" Line="50" Column="4" />
+      <File FileName="Obstacle.cs" Line="40" Column="1" />
+      <File FileName="Motorcycle.cs" Line="9" Column="28" />
+      <File FileName="Car.cs" Line="17" Column="4" />
+      <File FileName="Lorry.cs" Line="13" Column="14" />
+      <File FileName="Fuel.cs" Line="13" Column="14" />
       <File FileName="TestAll.cs" Line="122" Column="42" />
-      <File FileName="Obstacle.cs" Line="6" Column="3" />
       <File FileName="PlayerVehicle.cs" Line="59" Column="21" />
-      <File FileName="src\GameController.cs" Line="91" Column="19" />
       <File FileName="Team02CR Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

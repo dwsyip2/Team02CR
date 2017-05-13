@@ -24,8 +24,6 @@ C:\Users\FU\Documents\Projects\SwinGameXamarin\bin\Debug\SwinGame.dll
 C:\Users\FU\Documents\Projects\SwinGameXamarin\obj\x86\Debug-Mac\MyGame.csprojResolveAssemblyReference.cache
 C:\Users\FU\Documents\Projects\SwinGameXamarin\obj\x86\Debug-Mac\MyGame.exe
 C:\Users\FU\Documents\Projects\SwinGameXamarin\obj\x86\Debug-Mac\MyGame.pdb
-<<<<<<< Updated upstream
-=======
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Mac\MyGame.exe
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Mac\MyGame.pdb
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\Resources\animations\startup.txt
@@ -62,4 +60,3 @@ C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Asse
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\SwinGame.dll
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\nunit.framework.xml
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Mac\MyGame.csprojResolveAssemblyReference.cache
->>>>>>> Stashed changes

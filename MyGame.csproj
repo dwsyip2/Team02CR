@@ -45,7 +45,6 @@
       <CustomCommands>
 
         <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
-=======
         <Command>
           <type>AfterBuild</type>
           <command>xbuild ${ProjectName}.csproj /target:CopyFiles</command>
@@ -68,7 +67,6 @@
       <CustomCommands>
 
         <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
-=======
         <Command>
           <type>AfterBuild</type>
           <command>xbuild ${ProjectName}.csproj /target:CopyFiles</command>

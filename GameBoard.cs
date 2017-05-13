@@ -9,14 +9,14 @@ namespace MyGame
 	{
 		//==========FIELD============
 		private Color _background;
-		private readonly List<Obstacle> _obstacles;
+		private List<Obstacle> _obstacles;
 
 		private bool _spawned;
 
 		private static Random _random = new Random ();
 		private int _spawnpoints;
-		public static int numberOfObstacles = 1;
 		private static Stopwatch s1 = Stopwatch.StartNew ();
+		public static int numberOfObstacles = 1;
 
 
 		//==========CONSTRUCTOR==============
@@ -47,244 +47,39 @@ namespace MyGame
 			}
 		}
 
-		public bool RandomSpawnVehicle (Car c, PlayerVehicle p)
+		public void RandomSpawnVehicle (Obstacle o)
 		{
 			_spawnpoints = _random.Next (0, 3);
-			while (_spawnpoints == 4) {
-				if (_spawnpoints == 0) {
-					c.X = 320;
-				} else if (_spawnpoints == 1) {
-					c.X = 415;
-				} else if (_spawnpoints == 2) {
-					c.X = 510;
-				}
+			if (_spawnpoints == 0) {
+				o.X = 320;
+			} else if (_spawnpoints == 1) {
+				o.X = 415;
+			} else if (_spawnpoints == 2) {
+				o.X = 510;
 			}
-			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
+            o.Y = 20;
+			//difficulty control
+			if (s1.Elapsed.TotalSeconds <= 20) {
+				o.Speed = 50;
+				ScoreBoard.Stage = 1;
+			}
+			else if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
 			{
-				c.Speed = 5;
+				o.Speed = 100;
 				ScoreBoard.Stage = 2;
 			}
 			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
 			{
-				c.Speed = 10;
+				o.Speed = 150;
 				ScoreBoard.Stage = 3;
 			}else {
-				c.Speed = 11;
+				o.Speed = 200;
 				ScoreBoard.Stage = 4;
 			}
+			o.Draw ();
+            Obstacles.Add(o);
+        }
 
-
-			c.Drop ();
-			c.Draw ();
-
-
-			if (c.Collision (p) == true)
-			{
-				ScoreBoard.Decrement ();
-			}
-			else if (c.Y >= 570 && c.Collision (p) != true)
-			{
-				_obstacles.Add (c);
-			}
-
-
-			if (c.Y >= 600)
-			{
-				Spawnpoints = 4;
-                Obstacles.RemoveAt(Obstacles.Count - 1);
-				return _spawned = true;
-			}
-			else
-			{
-				return _spawned = false;
-			}
-
-
-		}
-
-		public bool RandomSpawnVehicle (Lorry c, PlayerVehicle p)
-		{
-			while (_spawnpoints == 4)
-			{
-				_spawnpoints = _random.Next (0, 3);
-				if (_spawnpoints == 0)
-				{
-					c.X = 320;
-				}
-				else if (_spawnpoints == 1)
-				{
-					c.X = 415; 
-				}
-				else if (_spawnpoints == 2)
-				{
-					c.X = 510; 
-				}
-			}
-
-
-			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
-			{
-				c.Speed = 5;
-				ScoreBoard.Stage = 2;
-			}
-			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
-			{
-				c.Speed = 10;
-				ScoreBoard.Stage = 3; 
-			}
-
-			c.Drop ();
-			c.Draw ();
-
-
-			if (c.Collision (p) == true)
-			{
-				ScoreBoard.Decrement ();
-			}
-			else if (c.Y >= 570 && c.Collision (p) != true)
-			{
-				_obstacles.Add (c);
-			}
-
-
-			if (c.Y >= 600)
-			{
-				Spawnpoints = 4;
-                Obstacles.RemoveAt(Obstacles.Count - 1);
-                return _spawned = true;
-			}
-			else
-			{
-				return _spawned = false;
-			}
-
-
-		}
-
-		public bool RandomSpawnVehicle (Motorcycle c, PlayerVehicle p)
-		{
-			while (_spawnpoints == 4)
-			{
-				_spawnpoints = _random.Next (0, 3);
-				if (_spawnpoints == 0)
-				{
-					c.X = 320;
-				}
-				else if (_spawnpoints == 1)
-				{
-					c.X = 415; 
-				}
-				else if (_spawnpoints == 2)
-				{
-					c.X = 510; 
-				}
-			}
-
-			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
-			{
-				c.Speed = 5;
-				ScoreBoard.Stage = 2;
-			}
-			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
-			{
-				c.Speed = 10;
-				ScoreBoard.Stage = 3; 
-			} else {
-					c.Speed = 11;
-					ScoreBoard.Stage = 4;
-			}
-
-			c.Drop ();
-			c.Draw ();
-
-
-			if (c.Collision (p) == true)
-			{
-				ScoreBoard.Decrement ();
-			}
-			else if (c.Y == 570 && c.Collision (p) != true)
-			{
-				_obstacles.Add (c);
-			}
-
-
-			if (c.Y >= 600)
-			{
-				Spawnpoints = 4;
-                Obstacles.RemoveAt(Obstacles.Count - 1);
-                return _spawned = true;
-			}
-			else
-			{
-				return _spawned = false;
-			}
-
-
-		}
-
-		public bool RandomSpawnVehicle (Fuel c, PlayerVehicle p)
-		{
-			while (_spawnpoints == 4)
-			{
-				_spawnpoints = _random.Next (0, 3);
-				if (_spawnpoints == 0)
-				{
-					c.X = 320;
-				}
-				else if (_spawnpoints == 1)
-				{
-					c.X = 415; 
-				}
-				else if (_spawnpoints == 2)
-				{
-					c.X = 510; 
-				}
-			}
-
-
-			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
-			{
-				c.Speed = 5;
-				ScoreBoard.Stage = 2;
-			}
-			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
-			{
-				c.Speed = 10;
-				ScoreBoard.Stage = 3; 
-			}
-			else {
-				c.Speed = 11;
-				ScoreBoard.Stage = 4;
-			}
-
-			//if (s1.Elapsed.TotalSeconds > 5) {
-			//	c.Speed = 10;
-			//	s.Stage = 3;
-			//}
-
-			c.Drop ();
-			c.Draw ();
-
-
-			if (c.Collision (p) == true)
-			{
-				ScoreBoard.Increment ();
-			}
-
-			if (c.Y >= 600)
-			{
-				Spawnpoints = 4;
-                Obstacles.RemoveAt(Obstacles.Count - 1);
-                return _spawned = true;
-			}
-			else
-			{
-				return _spawned = false;
-			}
-
-
-		}
-			
 		public void DisplaySpeed()
 		{
 			if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
@@ -307,14 +102,8 @@ namespace MyGame
 		}
 
 		public bool GameOver(){
-			if (ScoreBoard.Life == 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			if (ScoreBoard.Life == 0) return true;
+			else return false;
 		}
 
 		public void RestartTimer()
@@ -348,9 +137,25 @@ namespace MyGame
 			}
 		}
 
+		internal void MoveObstacle (PlayerVehicle p)
+		{
+            for(int i = 0; i < _obstacles.Count; i++)
+			{
+				_obstacles[i].Drop (p);
+				if (_obstacles[i].Collision (p) == true) {
+					ScoreBoard.Life += _obstacles[i].LifeCount;
+				}
+                //if (_obstacles[i].Y >= 600)
+                //{
+                //    _obstacles.Remove(_obstacles[i]);
+                //    i--;
+                //}
+            }
+		}
+
 		public bool ObstacleCondition ()
 		{
-			if (_obstacles.Count <= 1)
+			if (_obstacles.Count < 1)
 				return true;
 			else
 				return false;
@@ -383,4 +188,187 @@ namespace MyGame
 
 	}
 }
+
+
+//public bool RandomSpawnVehicle (Lorry c, PlayerVehicle p)
+//{
+//	while (_spawnpoints == 4)
+//	{
+//		_spawnpoints = _random.Next (0, 3);
+//		if (_spawnpoints == 0)
+//		{
+//			c.X = 320;
+//		}
+//		else if (_spawnpoints == 1)
+//		{
+//			c.X = 415; 
+//		}
+//		else if (_spawnpoints == 2)
+//		{
+//			c.X = 510; 
+//		}
+//	}
+
+
+//	if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
+//	{
+//		c.Speed = 5;
+//		ScoreBoard.Stage = 2;
+//	}
+//	else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
+//	{
+//		c.Speed = 10;
+//		ScoreBoard.Stage = 3; 
+//	}
+
+//	c.Drop ();
+//	c.Draw ();
+
+
+//	if (c.Collision (p) == true)
+//	{
+//		ScoreBoard.Decrement ();
+//	}
+//	else if (c.Y >= 570 && c.Collision (p) != true)
+//	{
+//		_obstacles.Add(c);
+//	}
+
+
+//	if (c.Y >= 600)
+//	{
+//		Spawnpoints = 4;
+//              Obstacles.RemoveAt(Obstacles.Count - 1);
+//              return _spawned = true;
+//	}
+//	else
+//	{
+//		return _spawned = false;
+//	}
+
+
+//}
+
+//public bool RandomSpawnVehicle (Motorcycle c, PlayerVehicle p)
+//{
+//	while (_spawnpoints == 4)
+//	{
+//		_spawnpoints = _random.Next (0, 3);
+//		if (_spawnpoints == 0)
+//		{
+//			c.X = 320;
+//		}
+//		else if (_spawnpoints == 1)
+//		{
+//			c.X = 415; 
+//		}
+//		else if (_spawnpoints == 2)
+//		{
+//			c.X = 510; 
+//		}
+//	}
+
+//	if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
+//	{
+//		c.Speed = 5;
+//		ScoreBoard.Stage = 2;
+//	}
+//	else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
+//	{
+//		c.Speed = 10;
+//		ScoreBoard.Stage = 3; 
+//	} else {
+//			c.Speed = 11;
+//			ScoreBoard.Stage = 4;
+//	}
+
+//	c.Drop ();
+//	c.Draw ();
+
+
+//	if (c.Collision (p) == true)
+//	{
+//		ScoreBoard.Decrement ();
+//	}
+//	else if (c.Y >= 570 && c.Collision (p) != true)
+//	{
+//		_obstacles.Add(c);
+//	}
+
+
+//	if (c.Y >= 600)
+//	{
+//		Spawnpoints = 4;
+//              Obstacles.RemoveAt(Obstacles.Count - 1);
+//              return _spawned = true;
+//	}
+//	else
+//	{
+//		return _spawned = false;
+//	}
+
+
+//}
+
+//public bool RandomSpawnVehicle (Fuel c, PlayerVehicle p)
+//{
+//	while (_spawnpoints == 4)
+//	{
+//		_spawnpoints = _random.Next (0, 3);
+//		if (_spawnpoints == 0)
+//		{
+//			c.X = 320;
+//		}
+//		else if (_spawnpoints == 1)
+//		{
+//			c.X = 415; 
+//		}
+//		else if (_spawnpoints == 2)
+//		{
+//			c.X = 510; 
+//		}
+//	}
+
+
+//	if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
+//	{
+//		c.Speed = 5;
+//		ScoreBoard.Stage = 2;
+//	}
+//	else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
+//	{
+//		c.Speed = 10;
+//		ScoreBoard.Stage = 3; 
+//	}
+//	else {
+//		c.Speed = 11;
+//		ScoreBoard.Stage = 4;
+//	}
+
+//	//if (s1.Elapsed.TotalSeconds > 5) {
+//	//	c.Speed = 10;
+//	//	s.Stage = 3;
+//	//}
+
+//	c.Drop ();
+//	c.Draw ();
+
+
+//	if (c.Collision (p) == true)
+//	{
+//		ScoreBoard.Increment ();
+//	}
+
+//	if (c.Y >= 600)
+//	{
+//		Spawnpoints = 4;
+//              Obstacles.RemoveAt(Obstacles.Count - 1);
+//              return _spawned = true;
+//	}
+//	else
+//	{
+//		return _spawned = false;
+//	}
+//}
+
 
