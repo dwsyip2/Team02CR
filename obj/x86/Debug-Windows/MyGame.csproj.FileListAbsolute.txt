@@ -162,3 +162,4 @@ C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Asse
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\SwinGame.dll
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\bin\Debug\nunit.framework.xml
 C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Windows\MyGame.exe
+C:\Users\User\Desktop\Sem 7\SWE20001 Software Development Tools & Practices\Assessment\Distinction Project\Team02CR\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache

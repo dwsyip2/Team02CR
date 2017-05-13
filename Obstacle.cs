@@ -9,19 +9,22 @@ namespace MyGame
 		public DateTime _prevTime;
 		public DateTime _curTime;
 		protected double _speed;
-		protected double _lifeCount;
+		protected int _lifeCount;
 		const int END = 610;
 
 		public Obstacle ()
 		{
 			_y = 20;
             _prevTime = DateTime.Now;
+			_curTime = DateTime.Now;
 		}
 
 		public Obstacle(double x,double y)
 		{
 			_x = x;
 			_y = y;
+			_prevTime = DateTime.Now;
+			_curTime = DateTime.Now;
 		}
 
 
@@ -39,14 +42,18 @@ namespace MyGame
 
 
 		public virtual bool Collision (PlayerVehicle p) { 
-			return SwinGame.PointInRect (SwinGame.PointAt ((float)X, (float)Y), (float)p.X, (float)p.Y,1, 1);
+			bool cond = SwinGame.PointInRect (SwinGame.PointAt ((float)X, (float)Y), (float)p.X - 80, (float)p.Y - 80, 80, 80);
+			cond |= SwinGame.PointInRect (SwinGame.PointAt ((float)X-80, (float)Y), (float)p.X - 80, (float)p.Y - 80, 80, 80);
+			cond |= SwinGame.PointInRect (SwinGame.PointAt ((float)X, (float)Y-80), (float)p.X - 80, (float)p.Y - 80, 80, 80);
+			cond |= SwinGame.PointInRect (SwinGame.PointAt ((float)X-80, (float)Y-80), (float)p.X - 80, (float)p.Y - 80, 80, 80);
+			return cond;
 		}
 
 		public virtual void Drop (PlayerVehicle p) {
             _curTime = DateTime.Now;
 			double prevY = Y;
 			if (Y < END) {
-               //Error command - generated unexpected Y
+               //Error command - generated unexpected Y :SOLVED
                Y += _curTime.Subtract(_prevTime).TotalMilliseconds/1000*Speed;
 			}
 			_prevTime = _curTime;
@@ -60,8 +67,8 @@ namespace MyGame
 			get { return _speed; }
 			set { _speed = value; }
 		}
-		public int LifeCount {
-			get;
+		public int LifeReward {
+			get { return _lifeCount;}
 		}
 	}
 }

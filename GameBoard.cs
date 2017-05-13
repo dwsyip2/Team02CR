@@ -60,20 +60,20 @@ namespace MyGame
             o.Y = 20;
 			//difficulty control
 			if (s1.Elapsed.TotalSeconds <= 20) {
-				o.Speed = 50;
+				o.Speed = 200;
 				ScoreBoard.Stage = 1;
 			}
 			else if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
 			{
-				o.Speed = 100;
+				o.Speed = 300;
 				ScoreBoard.Stage = 2;
 			}
 			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
 			{
-				o.Speed = 150;
+				o.Speed = 400;
 				ScoreBoard.Stage = 3;
 			}else {
-				o.Speed = 200;
+				o.Speed = 500;
 				ScoreBoard.Stage = 4;
 			}
 			o.Draw ();
@@ -142,14 +142,14 @@ namespace MyGame
             for(int i = 0; i < _obstacles.Count; i++)
 			{
 				_obstacles[i].Drop (p);
-				if (_obstacles[i].Collision (p) == true) {
-					ScoreBoard.Life += _obstacles[i].LifeCount;
-				}
-                //if (_obstacles[i].Y >= 600)
-                //{
-                //    _obstacles.Remove(_obstacles[i]);
-                //    i--;
-                //}
+                if (_obstacles[i].Y >= 600 || _obstacles [i].Collision (p) == true)
+                {
+					if (_obstacles [i].Collision (p) == true) {
+						ScoreBoard.Life += _obstacles [i].LifeReward;
+					}
+                    _obstacles.Remove(_obstacles[i]);
+                    i--;
+                }
             }
 		}
 

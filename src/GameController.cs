@@ -18,7 +18,6 @@ namespace MyGame
 		{
 			gameBoard = new GameBoard ();
 			ScoreBoard.Initialize (0, 3, 1, "Peak Hours");
-			gameBoard.Draw ();
 			p = new PlayerVehicle (415, 570);
 		}
 
@@ -54,10 +53,9 @@ namespace MyGame
 			SwinGame.DrawText ("Score:" + ScoreBoard.Score.ToString (), Color.Black, 10, 100);
 			SwinGame.DrawText ("Life:" + ScoreBoard.Life.ToString (), Color.Black, 10, 150);
 			SwinGame.DrawText ("Stage:" + ScoreBoard.Stage.ToString (), Color.Black, 10, 200);
-			SwinGame.DrawText ("Speed:" + ScoreBoard.Traffic.ToString (), Color.Black, 10, 350);
+			SwinGame.DrawText ("Speed:" + ScoreBoard.Traffic, Color.Black, 10, 350);
 			SwinGame.DrawText ("Right Arrow key to move right", Color.Black, 10, 250);
 			SwinGame.DrawText ("Left Arrow key to move left", Color.Black, 10, 300);
-			SwinGame.DrawText ("PosY:" + gameBoard.Obstacles[0].Y.ToString (), Color.Black, 10, 400);
 		}
 
 		public override void Execute ()
