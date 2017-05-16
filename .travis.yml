@@ -1,5 +1,5 @@
 language: csharp
-solution: "./Team02CR./MyGame.sln"
+solution: "./Team02CR/MyGame.sln"
 script:
   - xbuild /p:Configuration=Release MyGame.sln
   - mono ./packages/xunit.runners.*/tools/xunit.console.exe ./MyGame.Tests/bin/Release/MyGame.Tests.dll
