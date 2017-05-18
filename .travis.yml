@@ -6,5 +6,5 @@ install:
   - nuget restore MyGame.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyGame.Tests/bin/Release/MyGame.Tests.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Team02CR.Tests/bin/Release/Team02CR.Tests.dll
   
