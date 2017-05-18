@@ -1,7 +1,7 @@
 language: csharp
 solution: MyGame.sln
-mono: latest
+mono: 5.0.0
 install:
   - travis_retry nuget restore -source "https://www.nuget.org/api/v2" MyGame.sln
 script:
-  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./Team02CR.Tests/bin/Release/Team02CR.Tests.dll
+  - xbuild /p:Configuration=Release MyGame.sln
