@@ -1,7 +1,10 @@
-language: csharp
+language : csharp
 solution: MyGame.sln
+mono:
+  - 4.2.2
 install:
-  - travis_retry nuget restore -source "https://www.nuget.org/api/v2" MyGame.sln
+  - nuget restore MyGame.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - msbuild MyGame.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe bin/Debug/Team02CR.Tests.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
+  
