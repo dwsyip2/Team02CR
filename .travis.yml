@@ -4,5 +4,4 @@ install:
   - nuget restore MyGame.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release MyGame.sln
   - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./Team02CR.Tests/bin/Release/Team02CR.Tests.dll
