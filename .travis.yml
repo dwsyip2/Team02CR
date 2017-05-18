@@ -1,7 +1,8 @@
 language: csharp
-solution: MyGame.sln
-mono: 5.0.0
+solution: solution-name.sln
 install:
-  - travis_retry nuget restore -source "https://www.nuget.org/api/v2" MyGame.sln
+  - nuget restore MyGame.sln
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release MyGame.sln
+  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./Team02CR.Tests/bin/Release/Team02CR.Tests.dll
