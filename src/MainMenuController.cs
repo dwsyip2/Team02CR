@@ -12,6 +12,7 @@ namespace MyGame
 		string [] menu = {
 			"Play",
 			"High Score",
+			"Setting",
 			"Instruction",
 		};
 
@@ -56,7 +57,14 @@ namespace MyGame
 
 		void PerformMenuAction (int button)
 		{
-			UtilityFunction.gameStateStack.Push (GameState.ViewingGamePage);
+			switch (button) {
+			case 2:
+				UtilityFunction.gameStateStack.Push (GameState.ViewingSettingPage);
+				break;
+			default:
+				UtilityFunction.gameStateStack.Push (GameState.ViewingGamePage);
+				break;
+			}
 		}
 }
 }

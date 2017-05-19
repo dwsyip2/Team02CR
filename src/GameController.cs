@@ -70,13 +70,14 @@ namespace MyGame
 
 		public override void HandleInput ()
 		{
-			if (SwinGame.KeyTyped (KeyCode.vk_LEFT))
+			p.UpdateTime ();
+			if (SwinGame.KeyDown (KeyCode.vk_LEFT))
 				p.NavigateLeft ();
-			else if (SwinGame.KeyTyped (KeyCode.vk_RIGHT))
+			else if (SwinGame.KeyDown (KeyCode.vk_RIGHT))
 				p.NavigateRight ();
-			else if (SwinGame.KeyTyped (KeyCode.vk_UP))
+			else if (SwinGame.KeyDown (KeyCode.vk_UP))
 				p.NavigateUp ();
-			else if (SwinGame.KeyTyped (KeyCode.vk_DOWN))
+			else if (SwinGame.KeyDown (KeyCode.vk_DOWN))
 				p.NavigateDown ();
             else if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
                 UtilityFunction.gameStateStack.Pop();

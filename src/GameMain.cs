@@ -13,6 +13,7 @@ namespace MyGame
 			GameResources.LoadResources ();
 			MainMenuController myMenu = new MainMenuController ();
             GameController myGame = new GameController();
+			SettingController mySetting = new SettingController ();
 			UtilityFunction.gameStateStack.Push (GameState.ViewingMainPage);
 			Page page = myMenu;
             //Run the game loop
@@ -28,6 +29,9 @@ namespace MyGame
 						break;
 					case GameState.ViewingGamePage:
                         page = myGame;
+						break;
+					case GameState.ViewingSettingPage:
+						page = mySetting;
 						break;
 					default:
 						page = new MainMenuController();

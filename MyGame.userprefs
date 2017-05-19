@@ -7,12 +7,17 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Team02CR Status">
     <Files>
-      <File FileName="src\GameMain.cs" Line="33" Column="38" />
-      <File FileName="src\GameController.cs" Line="9" Column="19" />
-      <File FileName="GameBoard.cs" Line="191" Column="1" />
-      <File FileName="Obstacle.cs" Line="12" Column="16" />
+      <File FileName="src\GameMain.cs" Line="33" Column="40" />
+      <File FileName="GameBoard.cs" Line="42" Column="4" />
       <File FileName="Motorcycle.cs" Line="19" Column="4" />
-      <File FileName="src\MainMenuController.cs" Line="44" Column="24" />
+      <File FileName="src\MainMenuController.cs" Line="8" Column="27" />
+      <File FileName="src\SettingController.cs" Line="10" Column="35" />
+      <File FileName="UtilityFunction.cs" Line="12" Column="39" />
+      <File FileName="Obstacle.cs" Line="53" Column="83" />
+      <File FileName="PlayerVehicle.cs" Line="60" Column="4" />
+      <File FileName="src\PageEnum.cs" Line="8" Column="21" />
+      <File FileName="src\GameController.cs" Line="84" Column="4" />
+      <File FileName="src\Page.cs" Line="12" Column="3" />
       <File FileName="Team02CR Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

@@ -5,6 +5,9 @@ namespace MyGame
 	{
 		public abstract void DrawPage ();
 		public abstract void HandleInput ();
+		/// <summary>
+		/// Insert drawpage and handle input function as minimum requirement.
+		/// </summary>
 		public abstract void Execute ();
 	}
 }

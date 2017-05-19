@@ -4,6 +4,7 @@ namespace MyGame
 	public enum GameState
 	{
 		ViewingMainPage,
-		ViewingGamePage
+		ViewingGamePage,
+		ViewingSettingPage
 	}
 }

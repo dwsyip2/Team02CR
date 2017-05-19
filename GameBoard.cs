@@ -57,28 +57,31 @@ namespace MyGame
 			} else if (_spawnpoints == 2) {
 				o.X = 510;
 			}
-            o.Y = 20;
-			//difficulty control
-			if (s1.Elapsed.TotalSeconds <= 20) {
-				o.Speed = 200;
-				ScoreBoard.Stage = 1;
-			}
-			else if (s1.Elapsed.TotalSeconds > 20 && s1.Elapsed.TotalSeconds <= 40)
-			{
-				o.Speed = 300;
-				ScoreBoard.Stage = 2;
-			}
-			else if (s1.Elapsed.TotalSeconds > 40 && s1.Elapsed.TotalSeconds <= 60)
-			{
-				o.Speed = 400;
-				ScoreBoard.Stage = 3;
-			}else {
-				o.Speed = 500;
-				ScoreBoard.Stage = 4;
-			}
+			o.Y = UtilityFunction.InitialY;
+			DifficultyHandler (o);
 			o.Draw ();
             Obstacles.Add(o);
         }
+
+		void DifficultyHandler (Obstacle o)
+		{
+			//difficulty control
+			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Easy)) {
+				o.Speed = 200 + (int)(s1.Elapsed.TotalSeconds / 20)*100;
+				o.Acceleration = 0;
+			}
+
+			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Medium)) {
+				o.Speed = 200;
+				o.Acceleration = 500 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+			}
+
+			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Hard)) {
+				o.Speed = 200 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+				o.Acceleration = 500 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+			}
+			ScoreBoard.Stage = (int)(s1.Elapsed.TotalSeconds / 20) + 1;
+		}
 
 		public void DisplaySpeed()
 		{
@@ -153,12 +156,21 @@ namespace MyGame
             }
 		}
 
+		/// <summary>
+		/// Condition checking for valid obstacles generation
+		/// </summary>
 		public bool ObstacleCondition ()
 		{
-			if (_obstacles.Count < 1)
+			if (_obstacles.Count < UtilityFunction.ObstacleLimit) {
 				return true;
-			else
-				return false;
+			}
+			else 
+			{
+				for (int i = 0; i < Obstacles.Count; i++) {
+					if (Obstacles [i].Y < 200) return false;
+				}
+			}
+			return true;
 		}
 
 		//===============PROPERTIES======================

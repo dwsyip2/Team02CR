@@ -7,6 +7,13 @@ namespace MyGame
 	{
 		public static GameState Viewing = GameState.ViewingMainPage;
 		public static Stack<GameState> gameStateStack = new Stack<GameState> ();
+		static double _initialY = -75;
+		public static GameDifficulty currentDifficulty = GameDifficulty.Easy;
+		public static int ObstacleLimit = 1;
+		public static double InitialY {
+			get { return _initialY; }
+			set { _initialY = value; }
+		}
 
 		public static bool IsMouseInRectangle (int x, int y, int width, int height, Point2D mouse)
 		{
