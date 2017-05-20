@@ -1,6 +1,7 @@
 language: csharp
+solution: MyGame.sln
 script:
-  - msbuild /p:Configuration=Debug MyGame.sln
+  - xbuild /p:Configuration=Debug MyGame.sln
 before_install:
   - sudo apt-get install nunit-console
 before_script:
