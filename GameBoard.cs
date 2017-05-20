@@ -10,6 +10,7 @@ namespace MyGame
 		//==========FIELD============
 		private Color _background;
 		private List<Obstacle> _obstacles;
+		static List<Pattern> debugPattern = new List<Pattern>();
 
 		private bool _spawned;
 
@@ -80,18 +81,25 @@ namespace MyGame
 				o.Acceleration = 500 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
 			}
 			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Extreme)) {
-				o.SpeedY = 200 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
-				o.Acceleration = 300 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
-				const int desiredPositionCount = 1;
-				int prevY = 0;
+				o.SpeedY = 400+ (int)(s1.Elapsed.TotalSeconds / 20) * 0;
+				o.SpeedX = 400;
+				o.Acceleration = 0 + (int)(s1.Elapsed.TotalSeconds / 20) * 0;
+				int desiredPositionCount = 2;
+				int prevX = (int)o.X;
+				//debugPattern.Clear ();
 				for (int i = 0; i < desiredPositionCount; i++) {
 					Pattern pattern = new Pattern ();
-					pattern.Y = _random.Next(prevY, prevY + yFullRange / desiredPositionCount);
-					int xTemp = (int)o.X;
-					pattern.X = positionX [_random.Next (1, 11)%3];
-					prevY += yFullRange / desiredPositionCount;
+					pattern.Y = _random.Next(0, (int)((double)(yFullRange-desiredPositionCount*100) / desiredPositionCount))
+						+ ((double)(yFullRange-desiredPositionCount * 100) / desiredPositionCount + 100)*i;
+					int xTemp = prevX;
+					while(xTemp == prevX)
+						xTemp = positionX [(_random.Next (0, 3))];
+					pattern.X = xTemp;
+					prevX = (int)pattern.X;
 					o.PatternQueue.Enqueue(pattern);
+					//debugPattern.Add (pattern);
 				}
+
 			}
 			ScoreBoard.Stage = (int)(s1.Elapsed.TotalSeconds / 20) + 1;
 		}
@@ -133,29 +141,19 @@ namespace MyGame
 		{
 			if (GameOver () == true) {
 				UtilityFunction.gameStateStack.Push (GameState.GameOverPage);
-				//do {
-				//	SwinGame.ProcessEvents ();
-				//	SwinGame.DrawBitmapOnScreen (new Bitmap ("gameover.jpg"), 0, 0);
-				//	SwinGame.RefreshScreen (60);
-				//	SwinGame.ReleaseBitmap ("gameover.jpg");
-				//} while (SwinGame.AnyKeyPressed () == false);
-
-				//if (SwinGame.KeyTyped (KeyCode.vk_y)) {
-				//	ScoreBoard.Life = 3;
-				//	ScoreBoard.Score = 0;
-				//	RestartTimer ();
-				//} else if (SwinGame.KeyTyped (KeyCode.vk_n)) {
-				//	do {
-				//		SwinGame.DrawBitmapOnScreen (new Bitmap ("thankyou.jpg"), 0, 0);
-				//		SwinGame.RefreshScreen (60);
-				//		SwinGame.ReleaseBitmap ("thankyou.jpg");
-				//	} while (false == SwinGame.WindowCloseRequested ());
-				//}
 			}
 		}
 
 		internal void MoveObstacle (PlayerVehicle p)
 		{
+			//Obstacle o = Obstacles [Obstacles.Count - 1];
+			//SwinGame.DrawText (o.Y.ToString () + " " + o.X.ToString (),
+			//				   Color.AliceBlue, 0,0);
+			for (int i = 1; i < debugPattern.Count; i++) {
+				SwinGame.DrawText (debugPattern [i].Y.ToString () + " " + debugPattern [i].X.ToString (),
+								  Color.AliceBlue,
+								  0, 12 * i);
+			}
             for(int i = 0; i < _obstacles.Count; i++)
 			{
 				_obstacles[i].Drop (p);

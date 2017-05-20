@@ -13,6 +13,8 @@ namespace MyGame
 		public DateTime _curTime;
 		protected int _lifeCount;
 		const int END = 610;
+		const int minX = 320, maxX = 510;
+		private double nextX;
 
 		public Obstacle ()
 		{
@@ -32,6 +34,7 @@ namespace MyGame
 		{
 			_acc = 0;
 			_speedX = 0;
+			nextX = X;
 			_patternQueue = new Queue<Pattern> ();
 			_prevTime = DateTime.Now;
 			_curTime = DateTime.Now;
@@ -50,7 +53,8 @@ namespace MyGame
 		}
 
 
-		public virtual bool Collision (PlayerVehicle p) { 
+		public virtual bool Collision (PlayerVehicle p) {
+			return false;
 			bool cond = SwinGame.PointInRect (SwinGame.PointAt ((float)X, (float)Y), (float)p.X - WIDTH, (float)p.Y - HEIGHT, WIDTH, HEIGHT);
 			cond |= SwinGame.PointInRect (SwinGame.PointAt ((float)X-WIDTH, (float)Y), (float)p.X - WIDTH, (float)p.Y - HEIGHT, WIDTH, HEIGHT);
 			cond |= SwinGame.PointInRect (SwinGame.PointAt ((float)X, (float)Y-HEIGHT), (float)p.X - WIDTH, (float)p.Y - HEIGHT, WIDTH, HEIGHT);
@@ -68,10 +72,19 @@ namespace MyGame
 			if (PatternQueue.Count > 0) {
 				if (Y >= PatternQueue.Peek ().Y) {
 					int xDirection = Math.Sign (_patternQueue.Peek ().X - _x);
-					SpeedX = 200 * xDirection;
-					X += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedX;
+					SpeedX = SpeedY * xDirection * 2;
+					nextX = PatternQueue.Peek ().X;
 				}
-				if (Math.Abs(X-_patternQueue.Peek().X)<0.0000001) _patternQueue.Dequeue ();
+				if ((Math.Abs (X - nextX) < 5)) {
+					X = nextX;
+				}
+			} 
+			if ((Math.Abs (X - nextX) < 0.01)) {
+				SpeedX = 0;
+			} else if (X >= minX && X <= maxX) {
+				double tempX = X + _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedX;
+				if (tempX >= minX && tempX <= maxX)
+					X += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedX;
 			}
 			_prevTime = _curTime;
 		}
