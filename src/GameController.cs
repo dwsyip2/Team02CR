@@ -75,11 +75,11 @@ namespace MyGame
 				p.NavigateLeft ();
 			else if (SwinGame.KeyDown (KeyCode.vk_RIGHT))
 				p.NavigateRight ();
-			else if (SwinGame.KeyDown (KeyCode.vk_UP))
+			if (SwinGame.KeyDown (KeyCode.vk_UP))
 				p.NavigateUp ();
 			else if (SwinGame.KeyDown (KeyCode.vk_DOWN))
 				p.NavigateDown ();
-            else if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
+            if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
                 UtilityFunction.gameStateStack.Pop();
 		}
 	}

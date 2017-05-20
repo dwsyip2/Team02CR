@@ -9,7 +9,7 @@ namespace MyGame
 		//private double _speed; 
 		public Lorry (double x,double y):base(x,y)
 		{
-			_speed = 2.5;
+			_speedY = 2.5;
 			_lifeCount = -1;
 		}
 

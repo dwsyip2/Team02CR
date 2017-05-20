@@ -5,7 +5,7 @@ namespace MyGame
 {
 	public class PlayerVehicle
 	{
-		double _x, _y, _acc, _spd;
+		double _x, _y, _acc, _spdX, _spdY;
 
 		public DateTime _prevTime;
 		public DateTime _curTime;
@@ -14,7 +14,8 @@ namespace MyGame
 		{
 			_x = x;
 			_y = y;
-			_spd = 500;
+			_spdX = 500;
+			_spdY = 500;
 			_acc = 1000;
 			_prevTime = DateTime.Now;
 			_curTime = DateTime.Now;
@@ -24,35 +25,32 @@ namespace MyGame
 		{
 			_prevTime = _curTime;
 			_curTime = DateTime.Now;
-			_spd = 500;
-		}
-		public void UpdateSpeed ()
-		{
-			Speed += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * _acc;
+			_spdX = 500;
+			_spdY = 500;
 		}
 		//Move up
 		public void NavigateUp ()
 		{
 			if (Y > 90) {
-				UpdateSpeed ();
-				Y -= _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * Speed;
+				_spdY += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * _acc;
+				Y -= _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedY;
 			}
 		}
 
 		//Move Down
 		public void NavigateDown ()
 		{
-			if (Y < 480) {
-				UpdateSpeed ();
-				Y += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * Speed;
+			if (Y < 530) {
+				_spdY += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * _acc;
+				Y += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedY;
 			}
 		}
 		public void NavigateLeft ()
 		{
 			if (X > 280)
 			{
-				UpdateSpeed ();
-				X -= _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * Speed;
+				_spdX += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * _acc;
+				X -= _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedX;
 			}
 		}
 
@@ -60,8 +58,8 @@ namespace MyGame
 		{
 			if (X < 530)
 			{
-				UpdateSpeed ();
-				X += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * Speed;
+				_spdX += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * _acc;
+				X += _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedX;
 			}
 		}
 			
@@ -86,9 +84,14 @@ namespace MyGame
 			set{ _y = value; }
 		}
 
-		public double Speed {
-			get { return _spd; }
-			set { _spd = value; }
+		public double SpeedX {
+			get { return _spdX; }
+			set { _spdX = value; }
+		}
+
+		public double SpeedY {
+			get { return _spdY; }
+			set { _spdY = value; }
 		}
 
 		public double Acceleration {

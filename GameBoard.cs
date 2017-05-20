@@ -17,7 +17,12 @@ namespace MyGame
 		private int _spawnpoints;
 		private static Stopwatch s1 = Stopwatch.StartNew ();
 		public static int numberOfObstacles = 1;
+		static int [] positionX = { 320, 415, 510 };
 
+		const int xMin = 320;
+		const int xFullRange = 190;
+		const int yMin = 0;
+		const int yFullRange = 600;
 
 		//==========CONSTRUCTOR==============
 		public GameBoard (Color background)
@@ -50,35 +55,43 @@ namespace MyGame
 		public void RandomSpawnVehicle (Obstacle o)
 		{
 			_spawnpoints = _random.Next (0, 3);
-			if (_spawnpoints == 0) {
-				o.X = 320;
-			} else if (_spawnpoints == 1) {
-				o.X = 415;
-			} else if (_spawnpoints == 2) {
-				o.X = 510;
-			}
+			o.X = positionX [_spawnpoints];
 			o.Y = UtilityFunction.InitialY;
 			DifficultyHandler (o);
+			Obstacles.Add (o);
 			o.Draw ();
-            Obstacles.Add(o);
         }
 
 		void DifficultyHandler (Obstacle o)
 		{
 			//difficulty control
 			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Easy)) {
-				o.Speed = 200 + (int)(s1.Elapsed.TotalSeconds / 20)*100;
+				o.SpeedY = 200 + (int)(s1.Elapsed.TotalSeconds / 20)*100;
 				o.Acceleration = 0;
 			}
 
 			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Medium)) {
-				o.Speed = 200;
+				o.SpeedY = 200;
 				o.Acceleration = 500 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
 			}
 
 			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Hard)) {
-				o.Speed = 200 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+				o.SpeedY = 200 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
 				o.Acceleration = 500 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+			}
+			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Extreme)) {
+				o.SpeedY = 200 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+				o.Acceleration = 300 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
+				const int desiredPositionCount = 1;
+				int prevY = 0;
+				for (int i = 0; i < desiredPositionCount; i++) {
+					Pattern pattern = new Pattern ();
+					pattern.Y = _random.Next(prevY, prevY + yFullRange / desiredPositionCount);
+					int xTemp = (int)o.X;
+					pattern.X = positionX [_random.Next (1, 11)%3];
+					prevY += yFullRange / desiredPositionCount;
+					o.PatternQueue.Enqueue(pattern);
+				}
 			}
 			ScoreBoard.Stage = (int)(s1.Elapsed.TotalSeconds / 20) + 1;
 		}

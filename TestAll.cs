@@ -97,8 +97,7 @@ namespace MyGame
 	
 				gb.RandomSpawnVehicle (c);
 	
-			Assert.AreEqual (2.5 ,c.Speed);				
-
+			Assert.AreEqual (2.5 ,c.SpeedY);			
 		}
 
 		[Test()]

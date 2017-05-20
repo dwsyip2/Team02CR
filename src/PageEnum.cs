@@ -5,6 +5,7 @@ namespace MyGame
 	{
 		ViewingMainPage,
 		ViewingGamePage,
-		ViewingSettingPage
+		ViewingSettingPage,
+		ChangingDifficulty
 	}
 }

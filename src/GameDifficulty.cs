@@ -5,6 +5,7 @@ namespace MyGame
 	{
 		Easy,
 		Medium,
-		Hard
+		Hard,
+		Extreme
 	}
 }

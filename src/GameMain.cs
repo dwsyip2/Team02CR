@@ -31,6 +31,7 @@ namespace MyGame
                         page = myGame;
 						break;
 					case GameState.ViewingSettingPage:
+					case GameState.ChangingDifficulty:
 						page = mySetting;
 						break;
 					default:

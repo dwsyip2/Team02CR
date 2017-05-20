@@ -105,6 +105,7 @@
     <Compile Include="UtilityFunction.cs" />
     <Compile Include="src\GameDifficulty.cs" />
     <Compile Include="src\SettingController.cs" />
+    <Compile Include="src\Pattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
