@@ -21,7 +21,12 @@ namespace MyGame
 
 		public override void DrawPage ()
 		{
-			gameBoard.Draw ();
+			if (UtilityFunction.gameStateStack.Peek () == GameState.ViewingGamePage) {
+				gameBoard.Draw ();
+			}
+			if (UtilityFunction.gameStateStack.Peek () == GameState.GameOverPage) 
+				SwinGame.DrawBitmap ("gameover.jpg", 0, 0);
+
 			p.Draw ();
 			foreach (Obstacle o in gameBoard.Obstacles) {
 				o.Draw ();
@@ -59,28 +64,40 @@ namespace MyGame
 		public override void Execute ()
 		{
 			DrawPage ();
+			HandleInput ();
+			if (UtilityFunction.gameStateStack.Peek () == GameState.GameOverPage) return;
 			AddObstacle ();
 			gameBoard.MoveObstacle (p);
 			UpdateList ();
 			gameBoard.GetScore ();
-			HandleInput ();
 			gameBoard.DisplaySpeed ();
 			gameBoard.Check ();
 		}
 
 		public override void HandleInput ()
 		{
-			p.UpdateTime ();
-			if (SwinGame.KeyDown (KeyCode.vk_LEFT))
-				p.NavigateLeft ();
-			else if (SwinGame.KeyDown (KeyCode.vk_RIGHT))
-				p.NavigateRight ();
-			if (SwinGame.KeyDown (KeyCode.vk_UP))
-				p.NavigateUp ();
-			else if (SwinGame.KeyDown (KeyCode.vk_DOWN))
-				p.NavigateDown ();
-            if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
-                UtilityFunction.gameStateStack.Pop();
+			if (UtilityFunction.gameStateStack.Peek () == GameState.ViewingGamePage) {
+				p.UpdateTime ();
+				if (SwinGame.KeyDown (KeyCode.vk_LEFT))
+					p.NavigateLeft ();
+				else if (SwinGame.KeyDown (KeyCode.vk_RIGHT))
+					p.NavigateRight ();
+				if (SwinGame.KeyDown (KeyCode.vk_UP))
+					p.NavigateUp ();
+				else if (SwinGame.KeyDown (KeyCode.vk_DOWN))
+					p.NavigateDown ();
+			}
+			if (UtilityFunction.gameStateStack.Peek () == GameState.GameOverPage) {
+				if(SwinGame.KeyTyped(KeyCode.vk_y))
+					UtilityFunction.gameStateStack.Pop ();
+				else if (SwinGame.KeyTyped (KeyCode.vk_n))
+					while (UtilityFunction.gameStateStack.Peek () != GameState.ViewingMainPage)
+						UtilityFunction.gameStateStack.Pop ();
+			}
+			if (SwinGame.KeyTyped (KeyCode.vk_ESCAPE)) {
+				while(UtilityFunction.gameStateStack.Peek() != GameState.ViewingMainPage)
+					UtilityFunction.gameStateStack.Pop ();
+			}
 		}
 	}
 }

@@ -132,24 +132,25 @@ namespace MyGame
 		internal void Check ()
 		{
 			if (GameOver () == true) {
-				do {
-					SwinGame.ProcessEvents ();
-					SwinGame.DrawBitmapOnScreen (new Bitmap ("gameover.jpg"), 0, 0);
-					SwinGame.RefreshScreen (60);
-					SwinGame.ReleaseBitmap ("gameover.jpg");
-				} while (SwinGame.AnyKeyPressed () == false);
+				UtilityFunction.gameStateStack.Push (GameState.GameOverPage);
+				//do {
+				//	SwinGame.ProcessEvents ();
+				//	SwinGame.DrawBitmapOnScreen (new Bitmap ("gameover.jpg"), 0, 0);
+				//	SwinGame.RefreshScreen (60);
+				//	SwinGame.ReleaseBitmap ("gameover.jpg");
+				//} while (SwinGame.AnyKeyPressed () == false);
 
-				if (SwinGame.KeyTyped (KeyCode.vk_y)) {
-					ScoreBoard.Life = 3;
-					ScoreBoard.Score = 0;
-					RestartTimer ();
-				} else if (SwinGame.KeyTyped (KeyCode.vk_n)) {
-					do {
-						SwinGame.DrawBitmapOnScreen (new Bitmap ("thankyou.jpg"), 0, 0);
-						SwinGame.RefreshScreen (60);
-						SwinGame.ReleaseBitmap ("thankyou.jpg");
-					} while (false == SwinGame.WindowCloseRequested ());
-				}
+				//if (SwinGame.KeyTyped (KeyCode.vk_y)) {
+				//	ScoreBoard.Life = 3;
+				//	ScoreBoard.Score = 0;
+				//	RestartTimer ();
+				//} else if (SwinGame.KeyTyped (KeyCode.vk_n)) {
+				//	do {
+				//		SwinGame.DrawBitmapOnScreen (new Bitmap ("thankyou.jpg"), 0, 0);
+				//		SwinGame.RefreshScreen (60);
+				//		SwinGame.ReleaseBitmap ("thankyou.jpg");
+				//	} while (false == SwinGame.WindowCloseRequested ());
+				//}
 			}
 		}
 

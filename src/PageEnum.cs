@@ -6,6 +6,7 @@ namespace MyGame
 		ViewingMainPage,
 		ViewingGamePage,
 		ViewingSettingPage,
-		ChangingDifficulty
+		ChangingDifficulty,
+		GameOverPage
 	}
 }

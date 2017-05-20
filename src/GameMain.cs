@@ -28,7 +28,11 @@ namespace MyGame
                         myGame = new GameController();//clear game status
 						break;
 					case GameState.ViewingGamePage:
-                        page = myGame;
+						page = myGame;
+						break;
+					case GameState.GameOverPage:
+						myGame = new GameController ();
+						page = myGame;
 						break;
 					case GameState.ViewingSettingPage:
 					case GameState.ChangingDifficulty:
