@@ -79,7 +79,7 @@ namespace MyGame
 					X = nextX;
 				}
 			} 
-			if ((Math.Abs (X - nextX) < 0.01)) {
+			if ((Math.Abs (X - nextX) < 1) || ((nextX >= 415)&&((Math.Abs (X - nextX) < 5)))) {
 				SpeedX = 0;
 			} else if (X >= minX && X <= maxX) {
 				double tempX = X + _curTime.Subtract (_prevTime).TotalMilliseconds / 1000 * SpeedX;

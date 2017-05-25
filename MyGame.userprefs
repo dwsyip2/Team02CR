@@ -8,12 +8,12 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Team02CR Status">
     <Files>
       <File FileName="src\GameMain.cs" Line="34" Column="7" />
-      <File FileName="GameBoard.cs" Line="147" Column="44" />
+      <File FileName="GameBoard.cs" Line="72" Column="5" />
+      <File FileName="Obstacle.cs" Line="78" Column="35" />
       <File FileName="src\GameController.cs" Line="93" Column="45" />
       <File FileName="src\MainMenuController.cs" Line="47" Column="3" />
       <File FileName="src\SettingController.cs" Line="88" Column="3" />
       <File FileName="UtilityFunction.cs" Line="28" Column="3" />
-      <File FileName="Obstacle.cs" Line="78" Column="3" />
       <File FileName="Team02CR Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

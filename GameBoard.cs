@@ -81,9 +81,9 @@ namespace MyGame
 				o.Acceleration = 500 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
 			}
 			if (UtilityFunction.currentDifficulty.Equals (GameDifficulty.Extreme)) {
-				o.SpeedY = 400+ (int)(s1.Elapsed.TotalSeconds / 20) * 0;
+				o.SpeedY = 400+ (int)(s1.Elapsed.TotalSeconds / 20) * 100;
 				o.SpeedX = 400;
-				o.Acceleration = 0 + (int)(s1.Elapsed.TotalSeconds / 20) * 0;
+				o.Acceleration = 0 + (int)(s1.Elapsed.TotalSeconds / 20) * 100;
 				int desiredPositionCount = 2;
 				int prevX = (int)o.X;
 				//debugPattern.Clear ();
