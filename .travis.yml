@@ -3,7 +3,6 @@ solution: MyGame.sln
 install:
   - nuget restore MyGame.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-  - sudo apt-get install mono-complete
  
 script:
   - msbuild MyGame.sln
